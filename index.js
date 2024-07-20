@@ -3,6 +3,7 @@ const cors = require('cors');
 const sequelize = require('./Backend/Config/db');
 const userRouter = require('./Backend/Routes/UserRouter');
 const categoryRouter = require('./Backend/Routes/CategoryRouter');
+const productRouter = require('./Backend/Routes/ProductRouter');
 
 const PORT = process.env.PORT || 4050;
 const app = express();
@@ -11,6 +12,7 @@ app.use(cors());
 
 app.use('/users', userRouter);
 app.use("/categories", categoryRouter)
+app.use("/products", productRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, Welcome!');
